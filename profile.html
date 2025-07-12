@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - University Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo"><img src="https://res.cloudinary.com/djuhngvo7/image/upload/v1752329058/royal_african_college_transparent_1_v5gdmr.png" alt="Royal African College Logo" style="height: 120px;"></a>
+            <ul>
+                <li><a href="index.html#home-page">Home</a></li>
+                <li id="profile-nav-link" class="hidden"><a href="profile.html">Profile</a></li>
+                <li><a href="index.html#all-courses">Courses</a></li>
+                <li id="announcements-nav-link"><a href="index.html#platform-news-section">Announcements</a></li>
+                <li id="admin-nav-link" class="hidden"><a href="admin.html">Admin</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Explore More</a>
+                    <div class="dropdown-content">
+                        <a href="chat.html" id="student-chat-nav-link" class="hidden">Chat</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </li>
+                <li id="auth-status"><a href="#" id="login-logout">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="profile-page" class="container page-content">
+        <section id="user-profile">
+            <h1>User Profile</h1>
+            <div class="profile-grid">
+                <div class="profile-info-section">
+                    <div id="profile-picture-container" style="margin-bottom: 20px; text-align: center;">
+                        <img id="profile-picture" src="#" alt="Profile Picture" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid #ddd; display: inline-block;">
+                    </div>
+                    <h2 style="text-align: center;"><span id="user-name">N/A</span></h2>
+                    <p style="text-align: center; color: #666;"><span id="user-role">N/A</span></p>
+                    <button id="logout-button" class="btn" style="width: 100%; margin-top: 20px;">Logout</button>
+                </div>
+                <div class="profile-info-section">
+                    <h2>Basic Information</h2>
+                    <p><strong>Email:</strong> <span id="user-email">N/A</span></p>
+                    
+                    <h2>Personal Details</h2>
+                    <p><strong>Date of Birth:</strong> <span id="user-dob">N/A</span></p>
+                    <p><strong>Gender:</strong> <span id="user-gender">N/A</span></p>
+
+                    <h2>Contact Information</h2>
+                    <p><strong>Phone:</strong> <span id="user-phone">N/A</span></p>
+                    <p><strong>Address:</strong> <span id="user-address-street">N/A</span>, <span id="user-address-city">N/A</span>, <span id="user-address-state">N/A</span> <span id="user-address-zip">N/A</span>, <span id="user-address-country">N/A</span></p>
+
+                    <h2>Academic Background</h2>
+                    <p><strong>Previous Education:</strong> <span id="user-prev-education">N/A</span></p>
+                    <p><strong>Transcripts:</strong> <a id="user-transcripts-link" href="#" target="_blank" class="hidden">View Transcripts</a> <span id="user-transcripts-na">N/A</span></p>
+
+                    <h2>Program Selection</h2>
+                    <p><strong>Degree:</strong> <span id="user-degree">N/A</span></p>
+                    <p><strong>Major:</strong> <span id="user-major">N/A</span></p>
+                    <p><strong>Minor:</strong> <span id="user-minor">N/A</span></p>
+
+                    <h2>Emergency Contact</h2>
+                    <p><strong>Name:</strong> <span id="user-emergency-name">N/A</span></p>
+                    <p><strong>Relationship:</strong> <span id="user-emergency-relationship">N/A</span></p>
+                    <p><strong>Phone:</strong> <span id="user-emergency-phone">N/A</span></p>
+
+                    <p><strong>Terms Accepted:</strong> <span id="user-terms-accepted">N/A</span></p>
+
+                    <h2>Financials</h2>
+                    <p><strong>Fees Balance:</strong> <span id="user-fees-balance">N/A</span></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 University Portal. Inspired by MIT OpenCourseWare.</p>
+        </div>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo">University Portal</span>
+                    <p>Inspired by MIT OpenCourseWare</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Academic Calendar</a></li>
+                        <li><a href="#">Library</a></li>
+                        <li><a href="#">Student Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2024 University Portal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Firebase v11+ uses ES Modules -->
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>

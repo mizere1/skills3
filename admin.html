@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Course Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo"><img src="https://res.cloudinary.com/djuhngvo7/image/upload/v1752329058/royal_african_college_transparent_1_v5gdmr.png" alt="Royal African College Logo" style="height: 120px;"></a>
+            <ul>
+                <li><a href="index.html#home-page">Home</a></li>
+                <li id="profile-nav-link" class="hidden"><a href="profile.html">Profile</a></li>
+                <li><a href="index.html#all-courses">Courses</a></li>
+                <li id="announcements-nav-link"><a href="index.html#platform-news-section">Announcements</a></li>
+                <li id="admin-nav-link" class="hidden"><a href="admin.html">Admin</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Explore More</a>
+                    <div class="dropdown-content">
+                        <a href="chat.html" id="student-chat-nav-link" class="hidden">Chat</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </li>
+                <li id="auth-status"><a href="#" id="login-logout">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="admin-page" class="container admin-container">
+        <h1>Course Management</h1>
+
+        <section id="create-course-section" class="form-section">
+            <h2>Create New Course</h2>
+            <form id="create-course-form">
+                <div>
+                    <label for="course-title">Course Title:</label>
+                    <input type="text" id="course-title-input" required>
+                </div>
+                <div>
+                    <label for="course-code">Course Code:</label>
+                    <input type="text" id="course-code-input" placeholder="e.g., CS101" required>
+                </div>
+                <div>
+                    <label for="course-description">Course Description:</label>
+                    <textarea id="course-description-input" required></textarea>
+                </div>
+                <div>
+                    <label for="course-credits">Credit Hours:</label>
+                    <input type="number" id="course-credits-input" min="0" step="0.5" required>
+                </div>
+                <div>
+                    <label for="course-modules">Module Titles (one title per line):</label>
+                    <textarea id="course-modules-input" placeholder="Introduction to Topic A\nAdvanced Topic B\nPractical Applications"></textarea>
+                </div>
+                <div>
+                    <label for="course-creation-term-select">Assign to Academic Term:</label>
+                    <select id="course-creation-term-select" required>
+                        <option value="">-- Select Term --</option>
+                        <!-- Terms will be populated by JavaScript -->
+                    </select>
+                </div>
+                <button type="submit" class="btn">Create Course</button>
+            </form>
+            <p id="create-course-message" style="margin-top: 1em;"></p>
+        </section>
+
+        <section id="user-management-section" class="form-section">
+            <h2>User Management</h2>
+            <div id="admin-user-list-container">
+                <label for="admin-user-select">Select User:</label>
+                <select id="admin-user-select" style="margin-bottom: 1em; padding: 8px; min-width: 300px;">
+                    <option value="">Loading users...</option>
+                </select>
+            </div>
+
+            <div id="admin-selected-user-details" class="hidden">
+                <h3 id="admin-selected-user-name"></h3>
+
+                <h4>Fees Management</h4>
+                <p>Current Fees Balance: <strong id="admin-selected-user-fees">N/A</strong></p>
+                <div>
+                    <label for="admin-new-fees-amount">Set New Amount:</label>
+                    <input type="number" id="admin-new-fees-amount" placeholder="e.g., 27500" step="any">
+                </div>
+                <div>
+                    <label for="admin-new-fees-currency">Currency:</label>
+                    <input type="text" id="admin-new-fees-currency" value="MWK">
+                </div>
+                <button id="admin-update-fees-btn" class="btn">Update Fees</button>
+                <p id="admin-update-fees-message" style="margin-top: 0.5em;"></p>
+
+                <h4>Enrollment Approvals</h4>
+                <div id="admin-pending-enrollments">
+                    <p>Select a user to see pending enrollments.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="platform-announcements-section" class="form-section">
+            <h2>Post Platform Update/Announcement</h2>
+            <form id="platform-update-form">
+                <div>
+                    <label for="platform-update-message">Message:</label>
+                    <textarea id="platform-update-message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn">Post Platform Update</button>
+            </form>
+            <p id="platform-update-status" style="margin-top: 1em;"></p>
+        </section>
+
+        <section id="academic-term-management-section" class="form-section">
+            <h2>Academic Term Management</h2>
+            <form id="create-term-form">
+                <div>
+                    <label for="term-name">Term Name:</label>
+                    <input type="text" id="term-name" placeholder="e.g., Fall 2024" required>
+                </div>
+                <div>
+                    <label for="term-year">Year:</label>
+                    <input type="number" id="term-year" placeholder="e.g., 2024" min="2000" max="2100" required>
+                </div>
+                <div>
+                    <label for="term-type">Type:</label>
+                    <select id="term-type" required>
+                        <option value="">-- Select Type --</option>
+                        <option value="Fall">Fall</option>
+                        <option value="Spring">Spring</option>
+                        <option value="Summer">Summer</option>
+                        <option value="Winter">Winter</option>
+                        <option value="FullYear">Full Year</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="term-start-date">Start Date:</label>
+                    <input type="date" id="term-start-date" required>
+                </div>
+                <div>
+                    <label for="term-end-date">End Date:</label>
+                    <input type="date" id="term-end-date" required>
+                </div>
+                <button type="submit" class="btn">Create Academic Term</button>
+            </form>
+            <p id="term-create-status" style="margin-top: 1em;"></p>
+
+            <h3>Existing Academic Terms</h3>
+            <ul id="existing-terms-list" style="list-style-type: none; padding-left: 0;">
+                <li>Loading terms...</li>
+            </ul>
+        </section>
+
+        <!-- This section can be re-enabled later if needed for just listing courses -->
+        <!-- <section id="admin-course-list-container" class="form-section hidden">
+            <h2>Existing Courses</h2>
+            <div id="admin-course-list" class="course-list">
+                <p>Loading courses...</p>
+            </div>
+        </section> -->
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo">University Portal</span>
+                    <p>Inspired by MIT OpenCourseWare</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Academic Calendar</a></li>
+                        <li><a href="#">Library</a></li>
+                        <li><a href="#">Student Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2024 University Portal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
